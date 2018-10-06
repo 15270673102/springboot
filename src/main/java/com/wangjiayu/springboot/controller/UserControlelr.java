@@ -17,4 +17,7 @@ public class UserControlelr {
     public void name1() {
         System.out.println("123");
     }
+    public void name2() {
+        System.out.println("123");
+    }
 }
