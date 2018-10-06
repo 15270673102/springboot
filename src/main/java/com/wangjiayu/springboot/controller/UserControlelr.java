@@ -10,5 +10,7 @@ public class UserControlelr {
     @Autowired
     private IUserservice userservice;
 
+    public void name() {
 
+    }
 }
