@@ -9,6 +9,8 @@ public class UserControlelr {
 
     @Autowired
     private IUserservice userservice;
-
-
+    
+    public void name1() {
+        System.out.println("123");
+    }
 }
