@@ -70,6 +70,7 @@ public class IndexController {
     public List<Users> users() {
         List<Users> users = usersMapper.selectAll();
         System.out.println("321321");
+        System.out.println("321321");
         return users;
     }
 }
