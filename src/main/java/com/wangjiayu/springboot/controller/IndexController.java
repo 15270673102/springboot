@@ -51,7 +51,6 @@ public class IndexController {
     public String index(HttpServletRequest request) {
         request.setAttribute("key", "hello world");
         System.out.println(user);
-        System.out.println(user);
         System.out.println(key1);
         System.out.println(key2);
         System.out.println(key3);
