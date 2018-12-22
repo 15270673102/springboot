@@ -14,8 +14,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:resources.properties")
 public class SpringbootApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootApplication.class, args);
+    }
 
 }
