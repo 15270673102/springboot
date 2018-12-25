@@ -1,30 +1,26 @@
 package com.wangjiayu.springboot.redis;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.*;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.SetOperations;
-import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.data.redis.core.ZSetOperations;
-import org.springframework.stereotype.Component;
-
-@SuppressWarnings("unchecked")
 @Component
 public class RedisUtil {
 
-    @SuppressWarnings("rawtypes")
     @Autowired
     private RedisTemplate redisTemplate;
 
+    public void setRedisTemplate(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
     /**
      * 写入缓存
-     *
      * @param key
      * @param value
      * @return
@@ -43,7 +39,6 @@ public class RedisUtil {
 
     /**
      * 写入缓存设置时效时间
-     *
      * @param key
      * @param value
      * @return
@@ -63,7 +58,6 @@ public class RedisUtil {
 
     /**
      * 批量删除对应的value
-     *
      * @param keys
      */
     public void remove(final String... keys) {
@@ -74,7 +68,6 @@ public class RedisUtil {
 
     /**
      * 批量删除key
-     *
      * @param pattern
      */
     public void removePattern(final String pattern) {
@@ -85,7 +78,6 @@ public class RedisUtil {
 
     /**
      * 删除对应的value
-     *
      * @param key
      */
     public void remove(final String key) {
@@ -96,7 +88,6 @@ public class RedisUtil {
 
     /**
      * 判断缓存中是否有对应的value
-     *
      * @param key
      * @return
      */
@@ -106,7 +97,6 @@ public class RedisUtil {
 
     /**
      * 读取缓存
-     *
      * @param key
      * @return
      */
@@ -119,7 +109,6 @@ public class RedisUtil {
 
     /**
      * 哈希 添加
-     *
      * @param key
      * @param hashKey
      * @param value
@@ -131,7 +120,6 @@ public class RedisUtil {
 
     /**
      * 哈希获取数据
-     *
      * @param key
      * @param hashKey
      * @return
@@ -143,7 +131,6 @@ public class RedisUtil {
 
     /**
      * 列表添加
-     *
      * @param k
      * @param v
      */
@@ -154,7 +141,6 @@ public class RedisUtil {
 
     /**
      * 列表获取
-     *
      * @param k
      * @param l
      * @param l1
@@ -167,7 +153,6 @@ public class RedisUtil {
 
     /**
      * 集合添加
-     *
      * @param key
      * @param value
      */
@@ -178,7 +163,6 @@ public class RedisUtil {
 
     /**
      * 集合获取
-     *
      * @param key
      * @return
      */
@@ -189,7 +173,6 @@ public class RedisUtil {
 
     /**
      * 有序集合添加
-     *
      * @param key
      * @param value
      * @param scoure
@@ -201,7 +184,6 @@ public class RedisUtil {
 
     /**
      * 有序集合获取
-     *
      * @param key
      * @param scoure
      * @param scoure1

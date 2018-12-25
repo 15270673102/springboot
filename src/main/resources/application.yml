@@ -17,21 +17,17 @@ spring:
   redis:
     host: localhost
     port: 6379
+    password:
   #thymeleaf模板引擎
   thymeleaf:
     cache: false
     encoding: UTF-8
     mode: HTML5
-    servlet:
-      content-type: text/html
-  #热部署
-  devtools:
-    restart:
-      enabled: true
-      exclude: /static/**,/templates/**
+    prefix: classpath:/templates/
+    suffix: .html
   #数据库
   datasource:
-    url: jdbc:mysql://localhost:8066/wangjiayu?characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/springboot?characterEncoding=utf8
     username: root
     password: admin
     driver-class-name: com.mysql.jdbc.Driver
@@ -49,6 +45,7 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #mybatis分页插件
 pagehelper:
@@ -56,4 +53,3 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-    

@@ -1,32 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wangjiayu.springboot.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.wangjiayu.springboot.model.User" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.wangjiayu.springboot.model.User" useGeneratedKeys="true" keyProperty="id" >
-    insert into user (username, password)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.wangjiayu.springboot.model.User" >
+<mapper namespace="com.wangjiayu.springboot.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.wangjiayu.springboot.model.User">
+        <id column="u_id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+
+        <collection property="roleList" ofType="com.wangjiayu.springboot.model.Role">
+            <id property="id" column="r_id"/>
+            <result property="rolename" column="rolename"/>
+            <result property="roledesc" column="roledesc"/>
+
+            <collection property="permissions" ofType="com.wangjiayu.springboot.model.Permission">
+                <id property="id" column="p_id"/>
+                <result property="modelname" column="modelname"/>
+                <result property="permission" column="permission"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+      delete from user
+      where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="com.wangjiayu.springboot.model.User" useGeneratedKeys="true" keyProperty="id">
+      insert into user (username, password,state,email,nickname,phone)
+      values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR},
+              #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.wangjiayu.springboot.model.User">
     update user
     set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select id, username, password
+
+    <select id="findUserByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select u.id u_id,username,password,phone,nickname,email,r.id r_id ,rolename ,roledesc , p.id p_id ,modelname,permission
+    from user u
+    INNER JOIN user_role ur on u.id = ur.uid
+    INNER JOIN role r ON ur.rid = r.id
+    INNER JOIN role_permission rp ON r.id = rp.rid
+    INNER JOIN permission p on rp.pid = p.id
+    where u.username = #{username} or u.phone = #{username} or u.nickname = #{username} or u.email = #{username}
+  </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select *
     from user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select id, username, password
+    <select id="selectAll" resultMap="BaseResultMap">
+    select *
     from user
   </select>
+    <select id="getUserByName" resultType="com.wangjiayu.springboot.model.User" parameterType="string">
+        select * from user
+        where username = #{username}
+    </select>
 </mapper>

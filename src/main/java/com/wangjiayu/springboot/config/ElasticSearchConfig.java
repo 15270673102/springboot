@@ -4,6 +4,10 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * 配置es
+ */
+
 @Configuration
 public class ElasticSearchConfig {
 

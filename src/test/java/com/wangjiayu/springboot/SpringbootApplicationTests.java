@@ -31,6 +31,12 @@ public class SpringbootApplicationTests {
     @Resource
     private UserMapper userMapper;
 
+    @Test
+    public void test4() {
+        redisUtil.set("usersafdsa", 1321312);
+        redisUtil.set("usersaffdsafdsa", "fdsafdasf");
+        //System.out.println(redisUtil.get("shiro:cache:retrylimit:root"));
+    }
 
     @Test
     public void test1() {
@@ -42,15 +48,8 @@ public class SpringbootApplicationTests {
 
     @Test
     public void test2() {
-        for (int i = 10; i < 20; i++) {
-            userMapper.insert(new User(null, "wangjiayu" + i, "234"));
-        }
-    }
-
-    @Test
-    public void test7() {
-        redisUtil.set("username", "wangjiayu");
-        System.err.println(redisUtil.get("username"));
+        User root = userMapper.findUserByName("root");
+        System.out.println(root);
     }
 
     @Test
