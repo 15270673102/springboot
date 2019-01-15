@@ -13,11 +13,14 @@ logging:
 spring:
   application:
     name: springboot
+  session:
+    store-type: redis
   #redis
   redis:
+    database: 0
     host: localhost
     port: 6379
-    password:
+    password: 123
   #thymeleaf模板引擎
   thymeleaf:
     cache: false
@@ -32,13 +35,9 @@ spring:
     password: admin
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-  #es
-  data:
-    elasticsearch:
-      cluster-nodes: localhost:9300
-      cluster-name: wangjiayu
-      repositories:
-        enabled: true
+  #缓存
+#  cache:
+#    cache-names:
 
 #公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
 mybatis:
