@@ -9,9 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-@ServletComponentScan
-@MapperScan("com.wangjiayu.springboot.mapper")
-@PropertySource("classpath:resources.properties")
+//@MapperScan("com.wangjiayu.springboot.mapper")
 public class SpringbootApplication {
 
     public static void main(String[] args) {
