@@ -1,12 +1,16 @@
 package com.wangjiayu.springboot.VO;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
+@ApiModel(value = "TestVO测试")
 public class TestVO {
 
-    @NotEmpty(message = "不能为空")
+    @NotEmpty(message = "{testVO.message}")
     private String string;
+    @NotEmpty(message = "{testVO.message}")
+    private String string1;
 }
