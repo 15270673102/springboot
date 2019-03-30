@@ -1,33 +1,25 @@
 #服务器
 server:
-  port: 80
+  port: 8080
   servlet:
     context-path: /
 
 #配置日志
 logging:
-  file: log\text.log
+  file: G:\springboot\springboot.log
   level:
     root: info
 
+#spring配置
 spring:
   application:
     name: springboot
-  session:
-    store-type: redis
   #redis
   redis:
     database: 0
     host: localhost
     port: 6379
     password: 123
-  #thymeleaf模板引擎
-  thymeleaf:
-    cache: false
-    encoding: UTF-8
-    mode: HTML5
-    prefix: classpath:/templates/
-    suffix: .html
   #数据库
   datasource:
     url: jdbc:mysql://localhost:3306/springboot?characterEncoding=utf8
@@ -35,16 +27,13 @@ spring:
     password: 123
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-  #缓存
-#  cache:
-#    cache-names:
 
 #公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
 mybatis:
   mapperLocations: classpath:mapper/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #mybatis分页插件
 pagehelper:

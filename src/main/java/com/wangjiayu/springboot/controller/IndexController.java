@@ -1,14 +1,14 @@
 package com.wangjiayu.springboot.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import javax.servlet.http.HttpSession;
+
+@RestController
 public class IndexController {
 
-    @GetMapping
-    public void name() {
-
+    @RequestMapping("/index")
+    public void index(HttpSession session) {
     }
 }
