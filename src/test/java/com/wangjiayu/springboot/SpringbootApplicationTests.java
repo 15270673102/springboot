@@ -18,6 +18,8 @@ public class SpringbootApplicationTests {
 
     @Test
     public void test4() {
+        redisUtil.set("name", "123");
+        System.out.println(redisUtil.get("name"));
     }
 
 }
