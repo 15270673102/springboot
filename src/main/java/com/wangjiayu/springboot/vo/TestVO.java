@@ -1,4 +1,4 @@
-package com.wangjiayu.springboot.VO;
+package com.wangjiayu.springboot.vo;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wangjiayu.springboot.mapper.DmzjanimationMapper" >
+  <resultMap id="BaseResultMap" type="com.wangjiayu.springboot.model.Dmzjanimation" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="hahawebname" property="hahawebname" jdbcType="VARCHAR" />
+    <result column="antag" property="antag" jdbcType="VARCHAR" />
+    <result column="japanname" property="japanname" jdbcType="VARCHAR" />
+    <result column="allname" property="allname" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="original" property="original" jdbcType="VARCHAR" />
+    <result column="Screenwriter" property="screenwriter" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="website" property="website" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="contentdetail" property="contentdetail" jdbcType="VARCHAR" />
+    <result column="goal" property="goal" jdbcType="VARCHAR" />
+    <result column="mentotal" property="mentotal" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dmzjAnimation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wangjiayu.springboot.model.Dmzjanimation" useGeneratedKeys="true" keyProperty="id" >
+    insert into dmzjAnimation (hahawebname, antag, japanname, 
+      allname, year, state, 
+      tag, original, Screenwriter, 
+      company, website, content, 
+      contentdetail, goal, mentotal, 
+      url)
+    values (#{hahawebname,jdbcType=VARCHAR}, #{antag,jdbcType=VARCHAR}, #{japanname,jdbcType=VARCHAR}, 
+      #{allname,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{tag,jdbcType=VARCHAR}, #{original,jdbcType=VARCHAR}, #{screenwriter,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{contentdetail,jdbcType=VARCHAR}, #{goal,jdbcType=VARCHAR}, #{mentotal,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.wangjiayu.springboot.model.Dmzjanimation" >
+    update dmzjAnimation
+    set hahawebname = #{hahawebname,jdbcType=VARCHAR},
+      antag = #{antag,jdbcType=VARCHAR},
+      japanname = #{japanname,jdbcType=VARCHAR},
+      allname = #{allname,jdbcType=VARCHAR},
+      year = #{year,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      original = #{original,jdbcType=VARCHAR},
+      Screenwriter = #{screenwriter,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      website = #{website,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      contentdetail = #{contentdetail,jdbcType=VARCHAR},
+      goal = #{goal,jdbcType=VARCHAR},
+      mentotal = #{mentotal,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, hahawebname, antag, japanname, allname, year, state, tag, original, Screenwriter, 
+    company, website, content, contentdetail, goal, mentotal, url
+    from dmzjAnimation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, hahawebname, antag, japanname, allname, year, state, tag, original, Screenwriter, 
+    company, website, content, contentdetail, goal, mentotal, url
+    from dmzjAnimation
+  </select>
+</mapper>

@@ -1,6 +1,6 @@
 package com.wangjiayu.springboot.controller;
 
-import com.wangjiayu.springboot.VO.TestVO;
+import com.wangjiayu.springboot.vo.TestVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
