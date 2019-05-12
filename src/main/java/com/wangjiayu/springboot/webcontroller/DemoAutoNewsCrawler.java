@@ -4,17 +4,15 @@ import cn.edu.hfut.dmic.webcollector.model.CrawlDatums;
 import cn.edu.hfut.dmic.webcollector.model.Page;
 import cn.edu.hfut.dmic.webcollector.plugin.berkeley.BreadthCrawler;
 
+/**
+ * @author 迅捷羽翼
+ */
 public class DemoAutoNewsCrawler extends BreadthCrawler {
 
     public DemoAutoNewsCrawler(String crawlPath, boolean autoParse) {
         super(crawlPath, autoParse);
-        this.addSeed("http://news.hfut.edu.cn/list-1-1.html");
-
-        this.addRegex("http://news.hfut.edu.cn/show-.*html");
-        /*不获取这样的格式 jpg|png|gif*/
-        this.addRegex("-.*\\.(jpg|png|gif).*");
-        /*也不要这样的 #*/
-        this.addRegex("-.*#.*");
+        addRegex("http://news.hfut.edu.cn/show-.*html");
+        setThreads(1);
     }
 
     @Override
@@ -32,6 +30,7 @@ public class DemoAutoNewsCrawler extends BreadthCrawler {
 
     public static void main(String[] args) throws Exception {
         DemoAutoNewsCrawler crawler = new DemoAutoNewsCrawler("crawl", true);
-        crawler.start(4);
+        crawler.addSeed("http://news.hfut.edu.cn/list-1-1.html");
+        crawler.start(2);
     }
 }
