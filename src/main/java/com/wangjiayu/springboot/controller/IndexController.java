@@ -1,8 +1,12 @@
 package com.wangjiayu.springboot.controller;
 
+import com.wangjiayu.springboot.rabbitmq.Sender;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author 迅捷羽翼
@@ -12,17 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class IndexController {
 
+    @Resource
+    private Sender sender;
+
     @GetMapping(value = "/")
-    public String test1() {
-        log.info("xxxxxxxxxxxxxxxxxxxxxxxxx");
-        log.warn("warn warn warn warn warn warn warn warn ");
-        log.error("errorerrorerrorerrorerrorerrorerrorerrorerror ");
-        return "hello word";
+    public void test1() {
+        sender.send();
     }
 
-    @GetMapping(value = "/2")
-    public String test2() {
-        log.info("ttttttttttttttttttttt");
-        return "hello word";
-    }
 }

@@ -1,5 +1,6 @@
 package com.wangjiayu.springboot;
 
+import com.wangjiayu.springboot.rabbitmq.Sender;
 import com.wangjiayu.springboot.redis.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -14,12 +15,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SpringbootApplicationTests {
 
     @Autowired
-    private RedisUtil redisUtil;
+    private Sender sender;
 
     @Test
     public void test4() {
-        redisUtil.set("name", "123");
-        System.out.println(redisUtil.get("name"));
+        sender.send();
     }
 
 }

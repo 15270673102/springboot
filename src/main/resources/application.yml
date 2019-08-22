@@ -14,6 +14,12 @@ logging:
 spring:
   application:
     name: springboot
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
   #redis
   redis:
     database: 0
