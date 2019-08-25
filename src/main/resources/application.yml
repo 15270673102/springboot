@@ -20,6 +20,7 @@ spring:
     username: guest
     password: guest
     virtual-host: /
+    publisher-confirms: true
   #redis
   redis:
     database: 0
