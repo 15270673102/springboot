@@ -31,6 +31,7 @@ public class WebLogAspect {
     public void doBefore(JoinPoint joinPoint) {
         // 开始打印请求日志
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
         // 打印请求相关参数
         log.info("{}, {}, {}.{}, {}",

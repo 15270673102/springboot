@@ -29,7 +29,7 @@ spring:
     password:
   #数据库
   datasource:
-    url: jdbc:mysql://localhost:3306/springboot?characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8
     username: root
     password: 123
     driver-class-name: com.mysql.jdbc.Driver
@@ -38,6 +38,6 @@ spring:
 #公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
 mybatis:
   mapperLocations: classpath:mapper/*.xml
-#  configuration:
-#    map-underscore-to-camel-case: true
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

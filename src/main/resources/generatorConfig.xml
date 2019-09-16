@@ -25,7 +25,7 @@
         </commentGenerator>
 
         <!-- 必须要有的，使用这个配置链接数据库 @TODO:是否可以扩展 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/springboot" userId="root" password="123">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" userId="root" password="123">
             <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
         </jdbcConnection>
 
@@ -67,7 +67,7 @@
                 value=""/> -->
         </javaClientGenerator>
 
-        <table tableName="dmzjAnimation">
+        <table tableName="user">
             <!-- 参考 javaModelGenerator 的 constructorBased属性 -->
             <property name="dmzjAnimation" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
