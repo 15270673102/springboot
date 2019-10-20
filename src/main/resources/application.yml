@@ -1,16 +1,13 @@
-#服务器
 server:
   port: 8080
   servlet:
     context-path: /
 
-#配置日志
 logging:
   file: c:\log\springboot.txt
   level:
     root: info
 
-#spring配置
 spring:
   application:
     name: springboot
@@ -21,13 +18,11 @@ spring:
     password: guest
     virtual-host: /
     publisher-confirms: true
-  #redis
   redis:
     database: 0
     host: localhost
     port: 6379
-    password:
-  #数据库
+    password: 123
   datasource:
     url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8
     username: root
@@ -35,7 +30,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
-#公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   configuration:
