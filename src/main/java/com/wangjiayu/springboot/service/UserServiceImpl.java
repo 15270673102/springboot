@@ -15,8 +15,10 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public void insert(User user) {
+    public void insert(User user) throws Exception {
         userMapper.insert(user);
+        System.out.println("保存数据了");
         throw new RuntimeException("save 抛异常了");
     }
+
 }
