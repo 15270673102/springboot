@@ -1,0 +1,31 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "com.wangjiayu.springboot.properties.TestProperties",
+      "sourceType": "com.wangjiayu.springboot.properties.TestProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "test.msg",
+      "type": "java.lang.String",
+      "description": "msg",
+      "sourceType": "com.wangjiayu.springboot.properties.TestProperties",
+      "defaultValue": "msg"
+    },
+    {
+      "name": "test.msg1",
+      "type": "java.lang.String",
+      "sourceType": "com.wangjiayu.springboot.properties.TestProperties",
+      "defaultValue": "msg1"
+    },
+    {
+      "name": "test.msg2",
+      "type": "java.lang.String",
+      "sourceType": "com.wangjiayu.springboot.properties.TestProperties",
+      "defaultValue": "msg2"
+    }
+  ],
+  "hints": []
+}
