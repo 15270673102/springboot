@@ -1,12 +1,14 @@
 package com.wangjiayu.springboot.controller;
 
-import com.wangjiayu.springboot.rabbitmq.Sender;
+import com.wangjiayu.springboot.mapper.UserMapper;
+import com.wangjiayu.springboot.model.User;
 import com.wangjiayu.springboot.service.IAsyncService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -20,8 +22,10 @@ public class IndexController {
 
     @Resource
     private IAsyncService asyncService;
+    //@Resource
+    //private Sender sender;
     @Resource
-    private Sender sender;
+    private UserMapper userMapper;
 
     @GetMapping(value = "/test2")
     public void test2() throws InterruptedException, ExecutionException {
@@ -35,9 +39,14 @@ public class IndexController {
     }
 
 
-    @GetMapping(value = "/test1")
-    public void test1() {
-        sender.send();
+    //@GetMapping(value = "/test1")
+    //public void test1() {
+    //    sender.send();
+    //}
+
+    @GetMapping(value = "/test")
+    public List<User> test() {
+        return userMapper.selectAll();
     }
 
 }

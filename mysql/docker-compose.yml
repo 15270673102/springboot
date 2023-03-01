@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mysql2:
+    container_name: mysql2
+    image: mysql:2.0
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3307:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123"
+    volumes:
+      - /dockerData/mysql-volume/data:/var/lib/mysql
+      - /dockerData/mysql-volume/conf:/etc/mysql/conf.d
+      - /dockerData/mysql-volume/log:/var/log/mysql
+    networks:
+      - mysql2_net
+
+# mysql2容器创建一个mysql2_net的网络，驱动是bridge模式
+networks:
+  mysql2_net:
+    driver: bridge

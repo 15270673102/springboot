@@ -1,11 +1,19 @@
 version: '3'
+
 services:
   springboot:
-    image: springboot:1.0
     container_name: springboot
+    image: springboot:1.0
     restart: always
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    networks:
+      - mysql_mysql2_net
+
+#java项目连接一个名称 mysql_mysql2_net的外部网络
+networks:
+  mysql_mysql2_net:
+    external: true
